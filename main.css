@@ -23,21 +23,6 @@ section{
     width: 95%;
 }
 
-/* desktop screens */
-@media (min-width: 1281px) {
-    .screen{
-        width: 50%;
-    }
-  }
-
-/* tablet screens */
-
-@media (min-width: 768px) and (max-width: 1280px) {
-    .screen{
-        width: 70%;
-    }
-  }
-
 .center{
     margin-left: auto;
     margin-right: auto;
@@ -79,8 +64,8 @@ section{
 }
 
 .radio_container{
-    width: 30%;
-    height: 150px;
+    width: 80%;
+    height: auto;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -99,3 +84,25 @@ ul {
     text-align: center;
 }
 
+/* desktop screens */
+@media (min-width: 1281px) {
+    .screen{
+        width: 50%;
+    }
+    .radio_container{
+        width: 30%;
+        height: 150px;
+    }
+  }
+
+/* tablet screens */
+
+@media (min-width: 768px) and (max-width: 1280px) {
+    .screen{
+        width: 70%;
+    }
+    .radio_container{
+        width: 30%;
+        height: 150px;
+    }
+  }

@@ -1,69 +1,38 @@
-const STORE = [
-    {
-        question: "What is Naruto’s favorite food?",
-        options: ["Ramen", "Potato Chips", "Barbecue", "Salad"],
-        image: "img/favorite_food.png",
-        alt_tag: "small restaurant building",
-        correctAnswer: "Ramen",
-        lastQ: false
-    },
-    {
-        question: "What is the name of the nine-tailed demon fox that is sealed inside of Naruto?",
-        options: ["Shukaku", "Son Gokū", "Kurama", "Isobu"],
-        image: "img/greybox.png",
-        alt_tag: "nine tailed demon fox",
-        correctAnswer: "Kurama",
-        lastQ: false
-    },
-    {
-        question: "Who was Naruto’s father?",
-        options: ["Kakashi Hatake", "Jiraiya Sensei", "Madara Uchiha", "Minato Namikaze"],
-        image: "img/greybox.png",
-        alt_tag: "nine tailed demon fox",
-        correctAnswer: "Minato Namikaze",
-        lastQ: false
-    },
-    {
-        question: "What is the name of the Fifth Hokage?",
-        options: ["Lady Tsunade", "Kushina Uzumaki", "Kaguya Ōtsutsuki", "Sakura Haruno"],
-        image: "img/greybox.png",
-        alt_tag: "nine tailed demon fox",
-        correctAnswer: "Lady Tsunade",
-        lastQ: false
-    },
-    {
-        question: "Who is Naruto’s best friend and rival?",
-        options: ["Orochimaru", "Sasuke Uchiha", "Killer Bee", "Rock Lee"],
-        image: "img/greybox.png",
-        alt_tag: "nine tailed demon fox",
-        correctAnswer: "Sasuke Uchiha",
-        lastQ: true
-    }
-];
-
-
 function clickToStart() {
+    // naming a few global variables for use in multiple functions
+    questionIndex = 0;
+    totalCorrect = 0;
+    totalQuestions = STORE.length;
     // This function will be responsible for when users click the "start quiz" button
     $("#start_button").on("click", (function (){
         event.preventDefault();
          // hide the start screen
         $("#start").addClass("invisible");
         console.log("clickToStart ran");
-        newQuestion();
+
+        evaluateState();
     }));
 }
 
 function evaluateState(){ 
-
+    if (questionIndex === 0){
+        newQuestion(0);
+    } else if (questionIndex === 1){
+        newQuestion(1);
+    } else if (questionIndex === 2){
+        newQuestion(2);
+    } else if (questionIndex === 3){
+        newQuestion(3);
+    } else if (questionIndex === 4){
+        newQuestion(4);
+    } else {
+        showResults();
+    }
 }
 
 function newQuestion(i){ 
-    totalCorrect = 0;
-    totalQuestions = STORE.length;
-
-    for (i = 0; i < STORE.length; i++) {
-        index = i;
         currentQuestion = i + 1;
+        index = i;
         console.log(`total of i = ${i}`);
         console.log("pulling in question");
         // add question screen
@@ -108,14 +77,8 @@ function newQuestion(i){
                 incorrectAns();
             }
          }));     
-/*
-         if (i > STORE.length){
-             break;
-         }
-         showResults();
-    } */
-
-    }
+       //  questionIndex += 1;
+    
 
 }
 
@@ -128,29 +91,33 @@ function getRadioSelection (){
 } 
 
 function correctAns(){
+    // this screen is visible to the use if they submitted the correct answer
     console.log("ran correctAnswer");
     $(`#question`).empty();
     totalCorrect += 1;
      $(`#correct`).html(`<h4 class="question_number">Question ${currentQuestion} of ${totalQuestions}</h4>
         <h1 class="question_title">Correct!</h1>
-        <img src="img/greybox.png" alt="alt tag" class="small_img center">
-        <p class="explanation">This is an explanation paragraph.</p>
-        <button id="nextQ" class="button center">Next Question</button>
+        <img src="${STORE[questionIndex].correctImage}" alt="${STORE[questionIndex].correct_alt}" class="small_img center">
+        <p class="explanation">${STORE[questionIndex].explanation}</p>
+        <button id="nextQ" class="button center">Next</button>
         <h5 class="current_score" >Current score is ${totalCorrect} out of ${totalQuestions}.</h5>
         `);
+    questionIndex += 1;
     nextQuestion();      
 }
 
 function incorrectAns(){
+    // this screen is visible to the use if they submitted the incorrect answer
     console.log("ran incorrect answer");
     $(`#question`).empty();
     $(`#incorrect`).html(`<h4 class="question_number">Question ${currentQuestion} of ${totalQuestions}</h4>
     <h1 class="question_title">Nope!</h1>
-    <img src="img/greybox.png" alt="alt tag" class="small_img center">
-        <p class="explanation">This is an explanation paragraph.</p>
-        <button class="button center">Next Question</button>
+    <img src="${STORE[questionIndex].correctImage}" alt="${STORE[questionIndex].correct_alt}" class="small_img center">
+        <p class="explanation">The correct answer is ${STORE[questionIndex].correctAnswer}. ${STORE[questionIndex].explanation}</p>
+        <button id="nextQ" class="button center">Next</button>
         <h5 class="current_score" >Current score is ${totalCorrect} out of ${totalQuestions}.</h5>
     `);
+    questionIndex += 1;
     nextQuestion();
 }
 
@@ -161,7 +128,7 @@ function nextQuestion() {
         console.log("ran nextQuestion");
         $(`#correct`).empty();
         $(`#incorrect`).empty();
-        newQuestion();
+        evaluateState();
     });
     
 }
@@ -169,22 +136,12 @@ function nextQuestion() {
 function showResults(){    
     // This function will be responsible for showing users the results page
     $(`#results`).html(`
-    <h1 class="question_title">Results</h1>
-                <img src="img/greybox.png" alt="alt tag" class="img center">
-                <p class="explanation">Your final score is X out of 5.</p>
-                <button id="restart" class="button center">Start Over</button>
-
+    <h1 class="question_title">Your Results</h1>
+    <img src="img/results.jpg" alt="naruto pointing" class="img center">
+    <p class="explanation">Your final score is ${totalCorrect} out of ${totalQuestions}.</p>
+    <button id="restart" class="button center">Start Over</button>
     `);
 }
 
-function restartQuiz() {
-    // This function will be responsible for when users click the "restart quiz" button
-    $(`#restart`).on('click', function(){
-        console.log("ran restart");
-    });
-
-}
-
-
-// when the page loads, call `renderQuiz`
+// when the page loads, call `clickToStart`
 $(clickToStart);

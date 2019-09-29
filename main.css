@@ -16,12 +16,10 @@ h1, h5{
     height: 600px;
     display: flex;
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-section{
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
 
 .screen{
     width: 95%;
@@ -51,14 +49,14 @@ section{
 }
 
 .button{
-    background-color: #202020;
+    background-color: #18416F;
     color: white;
     text-transform: uppercase;
     border-radius: none;
     border: none;
     display: block;
-    font-size: 24px;
-    padding: 20px;
+    font-size: 20px;
+    padding: 10px;
 }
 
 .question_number,
@@ -68,17 +66,15 @@ section{
 }
 
 .radio_container{
-    width: 80%;
-    height: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    width: 100%;
+    height: 200px;
 }
 
-ul {
+ul, ul li {
     text-decoration: none;
     list-style-type: none;
-    font-size: 24px;
-    line-height: 30px;
+    font-size: 20px;
+    line-height: 25px;
 }
 
 .explanation{
@@ -94,7 +90,7 @@ ul {
         width: 50%;
     }
     .radio_container{
-        width: 30%;
+        width: 40%;
         height: 150px;
     }
   }
@@ -106,7 +102,7 @@ ul {
         width: 70%;
     }
     .radio_container{
-        width: 30%;
+        width: 40%;
         height: 150px;
     }
   }

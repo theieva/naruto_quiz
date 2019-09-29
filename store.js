@@ -1,7 +1,7 @@
 const STORE = [
     {
         question: "What is Naruto’s favorite food?",
-        options: ["Ramen", "Potato Chips", "Barbecue", "Salad"],
+        options: ["ramen", "Potato Chips", "Barbecue", "Salad"],
         image: "img/favorite_food.png",
         alt_tag: "small restaurant building",
         correctAnswer: "ramen",

@@ -4,7 +4,7 @@ const STORE = [
         options: ["Ramen", "Potato Chips", "Barbecue", "Salad"],
         image: "img/favorite_food.png",
         alt_tag: "small restaurant building",
-        correctAnswer: "Ramen",
+        correctAnswer: "ramen",
         correctImage: "img/answer_1.jpg",
         correct_alt: "naruto eating a bowl of ramen",
         explanation:"Naruto's favorite food is ramen. No matter how he's feeling (or how much he's already eaten), he can always go for one more bowl."

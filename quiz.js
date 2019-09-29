@@ -113,7 +113,8 @@ function incorrectAns(){
     $(`#incorrect`).html(`<h4 class="question_number">Question ${currentQuestion} of ${totalQuestions}</h4>
     <h1 class="question_title">Nope!</h1>
     <img src="${STORE[questionIndex].correctImage}" alt="${STORE[questionIndex].correct_alt}" class="small_img center">
-        <p class="explanation">The correct answer is ${STORE[questionIndex].correctAnswer}. ${STORE[questionIndex].explanation}</p>
+        <h4>The correct answer is ${STORE[questionIndex].correctAnswer}.</h4>
+        <p class="explanation"> ${STORE[questionIndex].explanation}</p>
         <button id="nextQ" class="button center">Next</button>
         <h5 class="current_score" >Current score is ${totalCorrect} out of ${totalQuestions}.</h5>
     `);

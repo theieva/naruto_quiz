@@ -10,20 +10,19 @@
 <body>
     <main class="main-container">
          <form>
-            <section id="#start" >
+            <section id="start" >
                 <div class="screen center">
                     <h1>Start Page Title</h1>
                     <img src="img/greybox.png" alt="alt tag" class="img center">
-                    <button class="button center">Call To Action</button>
+                    <button id="start_button" class="button center">Call To Action</button>
                 </div>
             </section>
-        <hr />
-        <section id="#question">
-            <div class="screen center">
-                <h4 class="question_number" >Question # of 5</h4>
-                <h1 class="question_title">This is the question?</h1>
+    
+        <section id="question" class="screen center invisible">
+                <h4  id="questionNumber" class="question_number" ></h4>
+                <h1 id="questionTitle" class="question_title"></h1>
                 <img src="img/greybox.png" alt="alt tag" class="small_img center">
-                <div class="radio_container center">
+                <div id="options" class="radio_container center">
                     <ul>
                         <li>
                             <input type="radio" id="option_1">
@@ -40,26 +39,26 @@
                         <li>
                             <input type="radio" id="option_4">
                             <label for="option_4">Option 4</label>
-                        </li>
+                        </li> 
                     </ul>
                 </div>
-                <button class="button center">Submit</button>
-            </div>
+                <button id="submit" class="button center">Submit</button>
+                <h5 id="score" class="current_score" ></h5>
         </section>
-<hr />
-      <section id="#correct">
-          <div class="screen center"></div>
+
+      <section id="correct">
+          <div class="screen center invisible">
                 <h4 class="question_number" >Question # of 5</h4>
-                <h1 class="question_title">Correct</h1>
+                <h1 class="question_title">!\Correct</h1>
                 <img src="img/greybox.png" alt="alt tag" class="small_img center">
                     <p class="explanation">This is an explanation paragraph.</p>
                     <button class="button center">Next Question</button>
                     <h5 class="current_score" >Current score is # out of 5.</h5>
          </div>  
         </section> 
-<hr />
-         <section id="#incorrect">
-             <div class="screen center">
+
+         <section id="incorrect">
+             <div class="screen center invisible">
                 <h4 class="question_number" >Question # of 5</h4>
                 <h1 class="question_title">Incorrect</h1>
                 <img src="img/greybox.png" alt="alt tag" class="small_img center">
@@ -68,9 +67,9 @@
                 <h5 class="current_score" >Current score is # out of 5.</h5>
            </div>     
         </section> 
-        <hr />
-       <section id="#results">
-           <div class="screen center">
+
+       <section id="results">
+           <div class="screen center invisible">
                 <h1 class="question_title">Results</h1>
                 <img src="img/greybox.png" alt="alt tag" class="img center">
                 <p class="explanation">Your final score is X out of 5.</p>
@@ -79,5 +78,10 @@
         </section>
         </form>
     </main>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="quiz.js"></script>
 </body>
 </html>

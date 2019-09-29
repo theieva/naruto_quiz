@@ -3,6 +3,10 @@
     font-family: sans-serif;
 }
 
+.invisible{
+    display: none;
+}
+
 
 h1{
     text-align: center;
